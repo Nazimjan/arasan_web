@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { testimonials } from '@/data/mock';
+import { SectionLayout, SectionHeader } from '@/components/ui';
 
 export default function TestimonialsSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -24,32 +25,30 @@ export default function TestimonialsSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="bg-noir-900 py-24 lg:py-32" aria-labelledby="testimonials-heading">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-
+        <div ref={sectionRef}>
+            <SectionLayout
+                id="testimonials"
+                ariaLabelledBy="testimonials-heading"
+                className="bg-noir-900"
+            >
                 {/* Header */}
-                <div className="mb-16">
-                    <div className="flex items-center gap-4 mb-6 animate-on-scroll">
-                        <div className="gold-line" />
-                        <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
-                            Отзывы гостей
-                        </span>
-                    </div>
-                    <h2
-                        id="testimonials-heading"
-                        className="font-serif text-display-md text-stone-warm animate-on-scroll"
-                        style={{ transitionDelay: '0.1s' }}
-                    >
-                        Истории <em className="text-gold-500 not-italic">исцеления</em>
-                    </h2>
-                </div>
+                <SectionHeader
+                    eyebrow="Отзывы гостей"
+                    title={
+                        <>
+                            Истории <em className="text-gold-500 not-italic">исцеления</em>
+                        </>
+                    }
+                    titleId="testimonials-heading"
+                    className="mb-16"
+                />
 
                 {/* Testimonials */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     {testimonials.map((t, i) => (
                         <article
                             key={t.id}
-                            className="p-8 border border-gold-500/15 bg-noir-800/50 hover:border-gold-500/35 transition-colors animate-on-scroll"
+                            className="p-8 border border-gold-500/15 bg-noir-800/50 hover:border-gold-500/35 transition-colors animate-on-scroll flex flex-col h-full"
                             style={{ transitionDelay: `${0.1 + i * 0.12}s` }}
                         >
                             {/* Quote icon */}
@@ -74,7 +73,7 @@ export default function TestimonialsSection() {
                         </article>
                     ))}
                 </div>
-            </div>
-        </section>
+            </SectionLayout>
+        </div>
     );
 }

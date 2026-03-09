@@ -21,15 +21,15 @@ export default function WellnessClient() {
         <>
             {/* Category Tabs */}
             <section className="bg-noir-900 py-8 border-b border-gold-500/10 sticky top-[72px] z-20">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                    <div className="flex gap-2 justify-center flex-wrap pb-1 scrollbar-none">
                         {CATEGORIES.map(cat => (
                             <button
                                 key={cat}
                                 onClick={() => setActive(cat)}
                                 className={`flex-shrink-0 px-5 py-2.5 font-sans text-xs tracking-[0.2em] uppercase transition-all ${active === cat
-                                        ? 'bg-gold-500 text-noir-950'
-                                        : 'border border-gold-500/30 text-stone-mid hover:border-gold-500/60 hover:text-stone-warm'
+                                    ? 'bg-gold-500 text-noir-950'
+                                    : 'border border-gold-500/30 text-stone-mid hover:border-gold-500/60 hover:text-stone-warm'
                                     }`}
                             >
                                 {cat === 'all' ? 'Все процедуры' : categoryMeta[cat].labelRu}
@@ -41,7 +41,7 @@ export default function WellnessClient() {
 
             {/* Programs Grid */}
             <section className="bg-noir-950 py-16 lg:py-20">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <p className="font-sans text-xs text-stone-dark mb-10 tracking-widest uppercase">
                         {filtered.length} процедур{filtered.length === 1 ? 'а' : filtered.length < 5 ? 'ы' : ''}
                     </p>

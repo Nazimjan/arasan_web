@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, MapPin, Phone, Award, Heart, Leaf, Shield } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
     title: 'О санатории — Жаркент Арасан',
@@ -54,34 +55,20 @@ const diseases = [
 export default function AboutPage() {
     return (
         <>
-            {/* Hero */}
-            <section className="relative h-72 lg:h-96 flex items-end">
-                <div className="absolute inset-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
-                        alt="Ущелье Борохудзир — место расположения санатория Жаркент Арасан"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-hero-overlay" />
-                </div>
-                <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-12 lg:pb-16 w-full">
-                    <nav className="flex items-center gap-2 mb-4">
-                        <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">Главная</Link>
-                        <span className="text-stone-dark">/</span>
-                        <span className="font-sans text-xs text-stone-warm">О санатории</span>
-                    </nav>
-                    <h1 className="font-serif text-display-md text-stone-warm">
-                        О <em className="text-gold-500 not-italic">санатории</em>
-                    </h1>
-                </div>
-            </section>
+            <PageHero
+                title="О санатории"
+                subtitle="История восстановления и медицина мирового уровня в сердце природы с 1952 года."
+                backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+                shimmerWord="санатории"
+                breadcrumb={[
+                    { label: 'Главная', href: '/' },
+                    { label: 'О санатории' }
+                ]}
+            />
 
             {/* History */}
             <section className="bg-noir-900 py-20 lg:py-28">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                         <div>
                             <div className="flex items-center gap-4 mb-8">
@@ -152,7 +139,7 @@ export default function AboutPage() {
 
             {/* Living radon force — 4 disease groups */}
             <section className="bg-noir-950 py-20 lg:py-28">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="mb-14">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="gold-line" />
@@ -186,7 +173,7 @@ export default function AboutPage() {
 
             {/* Effects of radon */}
             <section className="bg-noir-900 py-20 lg:py-28">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                         <div>
                             <div className="flex items-center gap-4 mb-6">
@@ -220,7 +207,7 @@ export default function AboutPage() {
 
             {/* Main procedures included */}
             <section className="bg-noir-950 py-20">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="mb-12">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="gold-line" />
@@ -251,7 +238,7 @@ export default function AboutPage() {
 
             {/* Location */}
             <section className="bg-noir-900 py-16 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
                             <div className="flex items-center gap-4 mb-6">

@@ -4,7 +4,7 @@ import { MapPin, Phone, Instagram, Youtube, Globe } from 'lucide-react';
 export default function Footer() {
     return (
         <footer id="contacts" className="bg-noir-950 border-t border-gold-500/15">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12 pt-20 pb-10">
+            <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 pt-20 pb-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
                     {/* Brand + socials */}

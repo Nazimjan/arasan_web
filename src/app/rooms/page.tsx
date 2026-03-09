@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, Users, ArrowRight, Wifi, Coffee, Car, Utensils, Dumbbell, BookOpen, Music2 } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
 import { rooms, standardAmenities, buildingAmenities } from '@/data/mock';
 import { formatPrice } from '@/lib/utils';
 
@@ -46,34 +47,20 @@ const events = [
 export default function RoomsPage() {
     return (
         <>
-            {/* Hero */}
-            <section className="relative h-72 lg:h-96 flex items-end">
-                <div className="absolute inset-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80"
-                        alt="Номера санатория Жаркент Арасан"
-                        fill className="object-cover object-center" priority sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-hero-overlay" />
-                </div>
-                <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-12 lg:pb-16 w-full">
-                    <nav className="flex items-center gap-2 mb-4">
-                        <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">Главная</Link>
-                        <span className="text-stone-dark">/</span>
-                        <span className="font-sans text-xs text-stone-warm">Проживание</span>
-                    </nav>
-                    <h1 className="font-serif text-display-md text-stone-warm">
-                        Номера <em className="text-gold-500 not-italic">&amp; размещение</em>
-                    </h1>
-                    <p className="mt-3 font-sans text-sm text-stone-mid max-w-xl">
-                        6 категорий номеров — от стандарта до ВИП-виллы с личными радоновыми ваннами
-                    </p>
-                </div>
-            </section>
+            <PageHero
+                title="Номера & размещение"
+                subtitle="6 категорий номеров — от стандарта до ВИП-виллы с личными радоновыми ваннами."
+                backgroundImage="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80"
+                shimmerWord="размещение"
+                breadcrumb={[
+                    { label: 'Главная', href: '/' },
+                    { label: 'Проживание' }
+                ]}
+            />
 
             {/* Standard amenities banner */}
             <section className="bg-noir-800 py-8 border-y border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold-500 mb-5">В каждом номере</p>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                         {standardAmenities.map(a => (
@@ -99,7 +86,7 @@ export default function RoomsPage() {
 
             {/* Rooms list */}
             <section className="bg-noir-950 py-16 lg:py-24">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 space-y-10">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 space-y-10">
                     {rooms.map((room, i) => (
                         <article
                             key={room.id}
@@ -172,7 +159,7 @@ export default function RoomsPage() {
 
             {/* Infrastructure */}
             <section className="bg-noir-900 py-16 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="flex items-center gap-4 mb-10">
                         <div className="gold-line" />
                         <h2 className="font-serif text-2xl text-stone-warm">Инфраструктура санатория</h2>
@@ -193,7 +180,7 @@ export default function RoomsPage() {
 
             {/* Leisure & events */}
             <section className="bg-noir-950 py-16 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
                         {/* Leisure */}
@@ -248,7 +235,7 @@ export default function RoomsPage() {
 
             {/* CTA */}
             <section className="bg-noir-900 py-12 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
                     <div>
                         <p className="font-serif text-xl text-stone-warm">Вопросы по бронированию?</p>
                         <p className="mt-1 font-sans text-sm text-stone-dark">Звоните — подберём номер под ваш запрос и бюджет</p>

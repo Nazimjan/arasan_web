@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowLeft, Clock, CheckCircle, XCircle, ArrowRight, Phone } from 'lucide-react';
 import { wellnessPrograms, categoryMeta } from '@/data/mock';
 import { formatPrice } from '@/lib/utils';
+import PageHero from '@/components/ui/PageHero';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -38,40 +39,20 @@ export default async function WellnessProgramPage({ params }: Props) {
 
     return (
         <>
-            {/* Hero */}
-            <section className="relative h-72 lg:h-[440px] flex items-end">
-                <div className="absolute inset-0">
-                    <Image
-                        src={program.imageUrl}
-                        alt={program.title}
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-hero-overlay" />
-                </div>
-                <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-10 lg:pb-14 w-full">
-                    <nav aria-label="Хлебные крошки" className="flex items-center gap-2 mb-5">
-                        <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">Главная</Link>
-                        <span className="text-stone-dark">/</span>
-                        <Link href="/wellness" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">Лечение</Link>
-                        <span className="text-stone-dark">/</span>
-                        <span className="font-sans text-xs text-stone-warm">{program.title}</span>
-                    </nav>
-                    <div className="flex items-center gap-3 mb-3">
-                        <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold-500 bg-noir-900/70 px-3 py-1">
-                            {categoryMeta[program.category]?.labelRu ?? program.category}
-                        </span>
-                    </div>
-                    <h1 className="font-serif text-display-md text-stone-warm">{program.title}</h1>
-                    <p className="mt-2 font-sans text-sm text-gold-400">{program.subtitle}</p>
-                </div>
-            </section>
+            <PageHero
+                title={program.title}
+                subtitle={`${program.subtitle || ''} ${program.description.slice(0, 80)}...`}
+                backgroundImage={program.imageUrl}
+                breadcrumb={[
+                    { label: 'Главная', href: '/' },
+                    { label: 'Лечение', href: '/wellness' },
+                    { label: program.title }
+                ]}
+            />
 
             {/* Content */}
             <section className="bg-noir-950 py-16 lg:py-24">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
                         {/* Main content */}

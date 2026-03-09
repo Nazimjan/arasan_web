@@ -1,34 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* Mineral Noir Palette */
+  /* Mineral Noir Palette - Updated to Primary #d3b678 */
+  --color-primary: #d3b678;
   --color-noir-950: #0a0a09;
   --color-noir-900: #111110;
   --color-noir-800: #1a1a18;
   --color-noir-700: #242420;
 
-  --color-gold-300: #E8D5A3;
-  --color-gold-400: #D4B87A;
-  --color-gold-500: #C8A96E;
-  --color-gold-600: #B8955A;
-  --color-gold-700: #9A7A45;
+  --color-gold-300: #f5f0e8;
+  --color-gold-400: #d3b678;
+  --color-gold-500: #d3b678;
+  --color-gold-600: #b8955a;
+  --color-gold-700: #9a7a45;
 
-  --color-stone-warm: #F5F0E8;
-  --color-stone-light: #EDE8DF;
-  --color-stone-mid: #D4CEBE;
-  --color-stone-dark: #A09888;
+  --color-stone-warm: #f8f7f6;
+  --color-stone-light: #f8f7f6;
+  --color-stone-mid: #d4d4d8;
+  --color-stone-dark: #71717a;
 
-  --color-mineral-teal: #2D5A5A;
-  --color-mineral-deep: #1E3E3E;
+  --color-mineral-dark: #1e1b14;
 
   /* Fonts */
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Manrope', sans-serif;
 
   /* Background images */
-  --background-image-gold-gradient: linear-gradient(135deg, #C8A96E 0%, #E8D5A3 50%, #C8A96E 100%);
+  --background-image-gold-gradient: linear-gradient(135deg, #d3b678 0%, #f5f0e8 50%, #d3b678 100%);
   --background-image-dark-gradient: linear-gradient(180deg, rgba(10, 10, 9, 0) 0%, rgba(10, 10, 9, 0.8) 70%, rgba(10, 10, 9, 1) 100%);
   --background-image-hero-overlay: linear-gradient(180deg, rgba(10, 10, 9, 0.3) 0%, rgba(10, 10, 9, 0.5) 60%, rgba(10, 10, 9, 0.95) 100%);
 
@@ -71,11 +72,6 @@
 }
 
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
 html {
   scroll-behavior: smooth;
@@ -84,8 +80,8 @@ html {
 
 body {
   background-color: #0a0a09;
-  color: #F5F0E8;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #f8f7f6;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -113,7 +109,7 @@ body {
 .gold-line {
   width: 60px;
   height: 1px;
-  background: #C8A96E;
+  background: #d3b678;
 }
 
 /* Noise texture overlay for depth */
@@ -141,7 +137,7 @@ body {
 
 /* Gold shimmer text effect */
 .gold-shimmer {
-  background: linear-gradient(135deg, #C8A96E 0%, #E8D5A3 40%, #C8A96E 60%, #9A7A45 100%);
+  background: linear-gradient(to right, #d3b678 20%, #f5f0e8 40%, #f5f0e8 60%, #d3b678 80%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;

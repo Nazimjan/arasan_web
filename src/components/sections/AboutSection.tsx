@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Award, Heart, Leaf, Shield } from 'lucide-react';
+import { SectionLayout } from '@/components/ui';
 
 const values = [
     { icon: Heart, label: 'Забота', desc: 'Персональный подход к каждому гостю' },
@@ -32,13 +33,12 @@ export default function AboutSection() {
     }, []);
 
     return (
-        <section
-            ref={sectionRef}
-            id="about"
-            className="bg-noir-950 py-24 lg:py-36 overflow-hidden"
-            aria-labelledby="about-heading"
-        >
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+        <div ref={sectionRef}>
+            <SectionLayout
+                id="about"
+                ariaLabelledBy="about-heading"
+                className="bg-noir-950 overflow-hidden"
+            >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
                     {/* Text side */}
@@ -132,7 +132,7 @@ export default function AboutSection() {
                         <div className="absolute -top-4 left-8 w-1 h-24 bg-gold-500/50" />
                     </div>
                 </div>
-            </div>
-        </section>
+            </SectionLayout>
+        </div>
     );
 }

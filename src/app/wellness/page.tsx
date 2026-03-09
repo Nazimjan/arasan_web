@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import WellnessClient from '@/components/sections/WellnessClient';
+import WellnessHero from '@/components/sections/WellnessHero';
 
 export const metadata: Metadata = {
     title: 'Лечебные процедуры — Жаркент Арасан',
@@ -12,55 +13,27 @@ export const metadata: Metadata = {
 export default function WellnessPage() {
     return (
         <>
-            {/* Page Hero */}
-            <section className="relative h-72 lg:h-96 flex items-end" aria-label="Заголовок раздела">
-                <div className="absolute inset-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
-                        alt="Лечебные процедуры Жаркент Арасан"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-hero-overlay" />
-                </div>
-                <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-12 lg:pb-16 w-full">
-                    <nav aria-label="Хлебные крошки" className="flex items-center gap-2 mb-4">
-                        <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">
-                            Главная
-                        </Link>
-                        <span className="text-stone-dark text-xs">/</span>
-                        <span className="font-sans text-xs text-stone-warm">Лечение</span>
-                    </nav>
-                    <h1 className="font-serif text-display-md text-stone-warm">
-                        Лечебные <em className="text-gold-500 not-italic">процедуры</em>
-                    </h1>
-                    <p className="mt-3 font-sans text-sm text-stone-mid max-w-xl">
-                        12 видов процедур на базе природных радоновых источников Жаркента
-                    </p>
-                </div>
-            </section>
+            <WellnessHero />
 
             {/* Info strip */}
             <section className="bg-noir-900 py-10 border-b border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-                    <div className="flex flex-col md:flex-row gap-6 md:gap-12">
-                        <div>
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
+                        <div className="md:max-w-xl text-center md:text-left">
                             <p className="font-sans text-xs text-stone-dark uppercase tracking-widest mb-2">Принцип лечения</p>
-                            <p className="font-sans text-sm text-stone-mid leading-relaxed max-w-xl">
+                            <p className="font-sans text-sm text-stone-mid leading-relaxed">
                                 Лечебная база Медицинского Оздоровительного Комплекса «Жаркент-Арасан» основана
                                 на природных радоновых источниках. Каждый пациент проходит осмотр врача,
                                 после которого составляется индивидуальный план процедур.
                             </p>
                         </div>
-                        <div className="flex-shrink-0 flex gap-8">
+                        <div className="flex-shrink-0 flex gap-8 justify-center">
                             {[
                                 { val: '12+', label: 'видов процедур' },
                                 { val: '30+', label: 'лет опыта' },
                                 { val: '100%', label: 'по назначению врача' },
                             ].map(stat => (
-                                <div key={stat.label}>
+                                <div key={stat.label} className="text-center">
                                     <p className="font-serif text-3xl text-gold-500">{stat.val}</p>
                                     <p className="font-sans text-[10px] text-stone-dark uppercase tracking-widest mt-1">{stat.label}</p>
                                 </div>
@@ -75,7 +48,7 @@ export default function WellnessPage() {
 
             {/* Additional paid services notice */}
             <section className="bg-noir-900 py-12 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <h2 className="font-serif text-2xl text-stone-warm mb-4">Дополнительные платные услуги</h2>
                     <p className="font-sans text-sm text-stone-dark mb-6">
                         Помимо основных программ, доступны следующие процедуры по отдельному назначению:
@@ -106,7 +79,7 @@ export default function WellnessPage() {
 
             {/* CTA */}
             <section className="bg-noir-800 py-14 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
                     <div>
                         <h2 className="font-serif text-2xl text-stone-warm">Не знаете, какую процедуру выбрать?</h2>
                         <p className="mt-2 font-sans text-sm text-stone-dark">

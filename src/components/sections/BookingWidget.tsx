@@ -39,128 +39,46 @@ export default function BookingWidget() {
     };
 
     return (
-        <div className="booking-panel w-full">
-            <div className="flex flex-col lg:flex-row items-stretch">
-
-                {/* Check-in */}
-                <div className="flex-1 flex flex-col px-6 py-4 border-b lg:border-b-0 lg:border-r border-gold-500/15">
-                    <label className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold-500 mb-1.5">
-                        Дата заезда
-                    </label>
-                    <div className="flex items-center gap-3">
-                        <Calendar size={16} strokeWidth={1.5} className="text-stone-dark flex-shrink-0" />
-                        <input
-                            id="checkin-date"
-                            type="date"
-                            min={today}
-                            value={booking.checkinDate}
-                            onChange={e => setBooking(prev => ({ ...prev, checkinDate: e.target.value }))}
-                            className="w-full bg-transparent font-sans text-sm text-stone-warm placeholder-stone-dark outline-none cursor-pointer"
-                            style={{ colorScheme: 'dark' }}
-                        />
-                    </div>
+        <div className="rounded-xl border border-primary/20 bg-mineral-dark/95 p-1 shadow-2xl backdrop-blur-xl">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-1 p-2">
+                {/* Check-in/Out */}
+                <div className="flex flex-col gap-1.5 rounded-lg bg-background-dark/50 p-5 transition-colors hover:bg-background-dark/80 cursor-pointer group">
+                    <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary/80 group-hover:text-primary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+                        Заезд — Выезд
+                    </span>
+                    <p className="text-sm font-medium text-white">
+                        {booking.checkinDate ? `${booking.checkinDate}` : '12 Окт — 18 Окт'}
+                    </p>
                 </div>
 
-                {/* Check-out */}
-                <div className="flex-1 flex flex-col px-6 py-4 border-b lg:border-b-0 lg:border-r border-gold-500/15">
-                    <label className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold-500 mb-1.5">
-                        Дата выезда
-                    </label>
-                    <div className="flex items-center gap-3">
-                        <Calendar size={16} strokeWidth={1.5} className="text-stone-dark flex-shrink-0" />
-                        <input
-                            id="checkout-date"
-                            type="date"
-                            min={booking.checkinDate || today}
-                            value={booking.checkoutDate}
-                            onChange={e => setBooking(prev => ({ ...prev, checkoutDate: e.target.value }))}
-                            className="w-full bg-transparent font-sans text-sm text-stone-warm placeholder-stone-dark outline-none cursor-pointer"
-                            style={{ colorScheme: 'dark' }}
-                        />
-                    </div>
+                {/* Guests */}
+                <div className="flex flex-col gap-1.5 rounded-lg bg-background-dark/50 p-5 transition-colors hover:bg-background-dark/80 cursor-pointer border-l border-primary/10 md:border-l-0 group">
+                    <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary/80 group-hover:text-primary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                        Гости
+                    </span>
+                    <p className="text-sm font-medium text-white">
+                        {booking.adults} Взрослых, {booking.children} Детей
+                    </p>
                 </div>
 
-                {/* Guests dropdown */}
-                <div className="flex-1 relative">
-                    <button
-                        id="guests-toggle"
-                        onClick={() => setIsGuestsOpen(!isGuestsOpen)}
-                        className="w-full flex flex-col px-6 py-4 text-left border-b lg:border-b-0 lg:border-r border-gold-500/15 hover:bg-white/5 transition-colors"
-                    >
-                        <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold-500 mb-1.5">
-                            Гости
-                        </span>
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <Users size={16} strokeWidth={1.5} className="text-stone-dark flex-shrink-0" />
-                                <span className="font-sans text-sm text-stone-warm">
-                                    {totalGuests} гост{totalGuests === 1 ? 'ь' : totalGuests < 5 ? 'я' : 'ей'}, {booking.rooms} компн.
-                                </span>
-                            </div>
-                            {isGuestsOpen
-                                ? <ChevronUp size={14} className="text-stone-dark" />
-                                : <ChevronDown size={14} className="text-stone-dark" />
-                            }
-                        </div>
-                    </button>
-
-                    {/* Guests popover */}
-                    {isGuestsOpen && (
-                        <div className="absolute top-full left-0 right-0 lg:-left-4 lg:right-auto lg:w-72 mt-2 bg-noir-800 border border-gold-500/20 z-20 shadow-2xl">
-                            {[
-                                { label: 'Взрослые', sub: 'от 18 лет', field: 'adults' as const, value: booking.adults, min: 1 },
-                                { label: 'Дети', sub: 'до 17 лет', field: 'children' as const, value: booking.children, min: 0 },
-                                { label: 'Комнаты', sub: '', field: 'rooms' as const, value: booking.rooms, min: 1 },
-                            ].map((row) => (
-                                <div key={row.field} className="flex items-center justify-between px-5 py-4 border-b border-gold-500/10 last:border-0">
-                                    <div>
-                                        <p className="font-sans text-sm text-stone-warm">{row.label}</p>
-                                        {row.sub && <p className="font-sans text-xs text-stone-dark">{row.sub}</p>}
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <button
-                                            aria-label={`Уменьшить ${row.label}`}
-                                            onClick={() => updateCount(row.field, -1)}
-                                            disabled={row.value <= row.min}
-                                            className="w-7 h-7 flex items-center justify-center border border-gold-500/30 text-gold-500 hover:border-gold-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                                        >
-                                            <Minus size={12} />
-                                        </button>
-                                        <span className="font-sans text-sm text-stone-warm w-5 text-center">
-                                            {row.value}
-                                        </span>
-                                        <button
-                                            aria-label={`Увеличить ${row.label}`}
-                                            onClick={() => updateCount(row.field, 1)}
-                                            className="w-7 h-7 flex items-center justify-center border border-gold-500/30 text-gold-500 hover:border-gold-500 transition-colors"
-                                        >
-                                            <Plus size={12} />
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
-                            <div className="p-4">
-                                <button
-                                    onClick={() => setIsGuestsOpen(false)}
-                                    className="w-full py-2.5 bg-gold-500 text-noir-950 font-sans text-xs tracking-[0.15em] uppercase hover:bg-gold-300 transition-colors"
-                                >
-                                    Применить
-                                </button>
-                            </div>
-                        </div>
-                    )}
+                {/* Category */}
+                <div className="flex flex-col gap-1.5 rounded-lg bg-background-dark/50 p-5 transition-colors hover:bg-background-dark/80 cursor-pointer border-l border-primary/10 md:border-l-0 group">
+                    <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary/80 group-hover:text-primary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 4v16" /><path d="M2 8h18a2 2 0 0 1 2 2v10" /><path d="M2 17h20" /><path d="M6 8v9" /></svg>
+                        Категория
+                    </span>
+                    <p className="text-sm font-medium text-white">Люкс с видом на горы</p>
                 </div>
 
-                {/* Search button */}
-                <div className="flex items-stretch">
-                    <button
-                        id="booking-search-btn"
-                        onClick={handleSearch}
-                        className="w-full lg:w-auto px-8 py-4 bg-gold-500 text-noir-950 font-sans text-xs tracking-[0.2em] uppercase hover:bg-gold-300 transition-colors duration-300 whitespace-nowrap"
-                    >
-                        Найти номер
-                    </button>
-                </div>
+                {/* CTA */}
+                <button
+                    onClick={handleSearch}
+                    className="flex h-full w-full items-center justify-center rounded-lg bg-primary px-6 py-5 text-xs font-bold uppercase tracking-[0.2em] text-noir-950 hover:bg-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                >
+                    Проверить наличие
+                </button>
             </div>
         </div>
     );

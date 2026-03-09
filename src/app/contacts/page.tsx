@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, Phone, Instagram, Youtube, Globe, Clock, Car, ArrowRight } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
     title: 'Контакты — Жаркент Арасан',
@@ -63,32 +64,19 @@ const howToGet = [
 export default function ContactsPage() {
     return (
         <>
-            {/* Page Hero */}
-            <section className="relative pt-32 pb-16 lg:pb-24 bg-noir-950">
-                <div className="absolute inset-0 noise-overlay" />
-                <div className="relative max-w-screen-xl mx-auto px-6 lg:px-12">
-                    <nav className="flex items-center gap-2 mb-8">
-                        <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">Главная</Link>
-                        <span className="text-stone-dark">/</span>
-                        <span className="font-sans text-xs text-stone-warm">Контакты</span>
-                    </nav>
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="gold-line" />
-                        <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">Мы здесь</span>
-                    </div>
-                    <h1 className="font-serif text-display-md text-stone-warm">
-                        Свяжитесь <em className="text-gold-500 not-italic">с нами</em>
-                    </h1>
-                    <p className="mt-5 font-sans text-sm text-stone-mid max-w-xl leading-relaxed">
-                        Наши специалисты помогут подобрать оптимальную программу лечения,
-                        рассчитать стоимость путёвки и ответят на любые вопросы.
-                    </p>
-                </div>
-            </section>
-
+            <PageHero
+                title="Свяжитесь с нами"
+                subtitle="Наши специалисты помогут подобрать оптимальную программу лечения, рассчитать стоимость путёвки и ответят на любые вопросы."
+                backgroundImage="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=1920&q=80"
+                shimmerWord="нами"
+                breadcrumb={[
+                    { label: 'Главная', href: '/' },
+                    { label: 'Контакты' }
+                ]}
+            />
             {/* Main content */}
             <section className="bg-noir-900 py-16 lg:py-24 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
                         {/* Left — contacts */}
@@ -230,11 +218,11 @@ export default function ContactsPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* How to get there */}
-            <section className="bg-noir-950 py-16 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+            < section className="bg-noir-950 py-16 border-t border-gold-500/10" >
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
                     <div className="flex items-center gap-4 mb-10">
                         <div className="gold-line" />
                         <h2 className="font-serif text-2xl text-stone-warm">Как добраться</h2>
@@ -257,7 +245,7 @@ export default function ContactsPage() {
                     {/* Map placeholder */}
                     <div className="relative w-full h-64 lg:h-96 bg-noir-800 border border-gold-500/15 flex items-center justify-center">
                         <div className="text-center">
-                            <MapPin size={32} strokeWidth={1} className="text-gold-500 mx-auto mb-4" />
+                            <MapPin size={32} strokeWidth={1} className="text-gold-500 m-auto mb-4" />
                             <p className="font-sans text-sm text-stone-dark mb-4">Жаркент-Арасан на карте</p>
                             <a
                                 href="https://maps.google.com/?q=Жаркент+Арасан+санаторий"
@@ -271,11 +259,11 @@ export default function ContactsPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Quick CTA */}
-            <section className="bg-noir-900 py-12 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+            < section className="bg-noir-900 py-12 border-t border-gold-500/10" >
+                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
                     <div>
                         <p className="font-serif text-xl text-stone-warm">Готовы к лечению?</p>
                         <p className="mt-1 font-sans text-sm text-stone-dark">Забронируйте номер и начните путь к здоровью</p>
@@ -287,7 +275,7 @@ export default function ContactsPage() {
                         Выбрать номер
                     </Link>
                 </div>
-            </section>
+            </section >
         </>
     );
 }

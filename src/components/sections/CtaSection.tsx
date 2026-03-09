@@ -22,7 +22,7 @@ export default function CtaSection() {
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gold-500/30" />
             </div>
 
-            <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
+            <div className="relative z-10 w-full max-w-[1280px] m-auto px-6 lg:px-12 text-center">
                 <div className="flex items-center justify-center gap-4 mb-8">
                     <div className="gold-line" />
                     <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
@@ -33,13 +33,13 @@ export default function CtaSection() {
 
                 <h2
                     id="cta-heading"
-                    className="font-serif text-display-lg text-stone-warm mx-auto max-w-3xl leading-tight"
+                    className="font-serif text-display-lg text-stone-warm m-auto max-w-3xl leading-tight"
                 >
                     Готовы начать <br />
                     <em className="gold-shimmer not-italic">путь к здоровью?</em>
                 </h2>
 
-                <p className="mt-8 font-sans text-sm text-stone-mid max-w-xl mx-auto leading-relaxed">
+                <p className="mt-8 font-sans text-sm text-stone-mid max-w-xl m-auto leading-relaxed">
                     Свяжитесь с нашими специалистами, чтобы подобрать программу, которая подходит именно вам.
                     Первая консультация — бесплатно.
                 </p>

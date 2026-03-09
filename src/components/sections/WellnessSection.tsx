@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { wellnessPrograms } from '@/data/mock';
 import { formatPrice } from '@/lib/utils';
+import { SectionLayout, SectionHeader } from '@/components/ui';
 
 const categoryColors: Record<string, string> = {
     mineral: 'mineral-teal',
@@ -45,26 +46,23 @@ export default function WellnessSection() {
     const featured = wellnessPrograms.filter(p => p.featured);
 
     return (
-        <section ref={sectionRef} className="bg-noir-900 py-24 lg:py-32" aria-labelledby="wellness-heading">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-
+        <div ref={sectionRef}>
+            <SectionLayout
+                id="wellness"
+                ariaLabelledBy="wellness-heading"
+                className="bg-noir-900"
+            >
                 {/* Section header */}
-                <div className="mb-16 lg:mb-20">
-                    <div className="flex items-center gap-4 mb-6 animate-on-scroll">
-                        <div className="gold-line" />
-                        <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
-                            Лечебные программы
-                        </span>
-                    </div>
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <h2
-                            id="wellness-heading"
-                            className="font-serif text-display-md text-stone-warm animate-on-scroll"
-                            style={{ transitionDelay: '0.1s' }}
-                        >
+                <SectionHeader
+                    eyebrow="Лечебные программы"
+                    title={
+                        <>
                             Путь к здоровью <br />
                             <em className="text-gold-500 not-italic">начинается здесь</em>
-                        </h2>
+                        </>
+                    }
+                    titleId="wellness-heading"
+                    action={
                         <Link
                             href="/wellness"
                             className="flex items-center gap-3 font-sans text-sm text-gold-500 hover:gap-5 transition-all group animate-on-scroll"
@@ -73,11 +71,11 @@ export default function WellnessSection() {
                             <span className="tracking-widest uppercase text-xs">Все программы</span>
                             <ArrowRight size={16} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    </div>
-                </div>
+                    }
+                />
 
                 {/* Featured programs grid — asymmetric layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
                     {/* Large card - first Featured */}
                     {featured[0] && (
@@ -123,7 +121,7 @@ export default function WellnessSection() {
                     )}
 
                     {/* Right column - 2 smaller cards */}
-                    <div className="lg:col-span-5 flex flex-col gap-6">
+                    <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8">
                         {featured.slice(1, 3).map((program, i) => (
                             <Link
                                 key={program.id}
@@ -158,7 +156,7 @@ export default function WellnessSection() {
                         ))}
                     </div>
                 </div>
-            </div>
-        </section>
+            </SectionLayout>
+        </div>
     );
 }

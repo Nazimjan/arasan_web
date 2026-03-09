@@ -3,9 +3,10 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Users, Maximize } from 'lucide-react';
+import { ArrowRight, Users } from 'lucide-react';
 import { rooms } from '@/data/mock';
 import { formatPrice } from '@/lib/utils';
+import { SectionLayout, SectionHeader } from '@/components/ui';
 
 export default function RoomsSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,26 +30,23 @@ export default function RoomsSection() {
     const displayRooms = rooms.slice(0, 3);
 
     return (
-        <section ref={sectionRef} className="bg-noir-950 py-24 lg:py-32" aria-labelledby="rooms-heading">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-
+        <div ref={sectionRef}>
+            <SectionLayout
+                id="rooms"
+                ariaLabelledBy="rooms-heading"
+                className="bg-noir-950"
+            >
                 {/* Header */}
-                <div className="mb-16 lg:mb-20">
-                    <div className="flex items-center gap-4 mb-6 animate-on-scroll">
-                        <div className="gold-line" />
-                        <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
-                            Размещение
-                        </span>
-                    </div>
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <h2
-                            id="rooms-heading"
-                            className="font-serif text-display-md text-stone-warm animate-on-scroll"
-                            style={{ transitionDelay: '0.1s' }}
-                        >
+                <SectionHeader
+                    eyebrow="Размещение"
+                    title={
+                        <>
                             Пространство <br />
                             <em className="text-gold-500 not-italic">вашего отдыха</em>
-                        </h2>
+                        </>
+                    }
+                    titleId="rooms-heading"
+                    action={
                         <Link
                             href="/rooms"
                             className="flex items-center gap-3 font-sans text-xs text-gold-500 hover:gap-5 transition-all group animate-on-scroll"
@@ -57,16 +55,16 @@ export default function RoomsSection() {
                             <span className="tracking-widest uppercase">Все номера</span>
                             <ArrowRight size={16} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    </div>
-                </div>
+                    }
+                />
 
                 {/* Rooms grid — horizontal scroll on mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     {displayRooms.map((room, i) => (
                         <Link
                             key={room.id}
-                            href={`/rooms#${room.category}`}
-                            className="group flex flex-col card-hover animate-on-scroll"
+                            href={`/rooms#${room.slug}`}
+                            className="group flex flex-col h-full card-hover animate-on-scroll"
                             style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
                         >
                             {/* Image */}
@@ -89,10 +87,6 @@ export default function RoomsSection() {
                             {/* Content */}
                             <div className="flex-1 flex flex-col p-6 bg-noir-800 border border-gold-500/10 group-hover:border-gold-500/30 transition-colors">
                                 <div className="flex items-center gap-6 mb-4">
-                                    <div className="flex items-center gap-1.5 text-stone-dark">
-                                        <Maximize size={13} strokeWidth={1.5} />
-                                        <span className="font-sans text-xs">{room.area} м²</span>
-                                    </div>
                                     <div className="flex items-center gap-1.5 text-stone-dark">
                                         <Users size={13} strokeWidth={1.5} />
                                         <span className="font-sans text-xs">до {room.maxGuests}</span>
@@ -118,7 +112,7 @@ export default function RoomsSection() {
                         </Link>
                     ))}
                 </div>
-            </div>
-        </section>
+            </SectionLayout>
+        </div>
     );
 }

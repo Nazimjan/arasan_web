@@ -2,7 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import BookingWidget from './BookingWidget';
+import Typewriter from '../ui/Typewriter';
 
 export default function HeroSection() {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -39,81 +41,63 @@ export default function HeroSection() {
             </div>
 
             {/* Main hero content */}
-            <div className="relative z-10 flex-1 flex flex-col justify-center max-w-screen-xl mx-auto px-6 lg:px-12 pt-32 pb-16">
+            <div className="relative z-20 mx-auto w-full max-w-[1280px] px-6 md:px-20 py-24 md:py-32 flex-1 flex flex-col justify-center items-center text-center">
+                <div className="max-w-6xl flex flex-col items-center">
 
-                {/* Eyebrow */}
-                <div className="flex items-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both', opacity: 0 }}>
-                    <div className="gold-line" />
-                    <p className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
-                        Санаторий · Жаркент, Казахстан
+
+                    {/* Main headline */}
+                    <h1
+                        className="gold-shimmer font-serif text-5xl md:text-8xl lg:text-9xl font-light leading-tight tracking-tight mb-8 md:whitespace-nowrap"
+                        style={{ minHeight: '1.2em' }}
+                    >
+                        <Typewriter
+                            text="Исцеление природой."
+                            speed={150}
+                            delay={800}
+                            className="inline"
+                        />
+                    </h1>
+
+                    {/* Subtitle */}
+                    <p
+                        className="max-w-2xl text-lg md:text-xl leading-relaxed text-slate-200 font-light animate-fade-in px-4"
+                        style={{ animationDelay: '0.6s', animationFillMode: 'both', opacity: 0 }}
+                    >
+                        Опыт премиального оздоровления на природных радоновых источниках Жаркента. Медицина, традиции и современный комфорт в самом сердце гор.
                     </p>
-                </div>
 
-                {/* Main headline */}
-                <h1
-                    className="font-serif text-display-xl text-stone-warm leading-none max-w-4xl"
-                    style={{ animationDelay: '0.4s' }}
-                >
-                    <span
-                        className="block animate-fade-in"
-                        style={{ animationDelay: '0.4s', animationFillMode: 'both', opacity: 0 }}
-                    >
-                        Исцеление
-                    </span>
-                    <span
-                        className="block gold-shimmer animate-fade-in"
-                        style={{ animationDelay: '0.65s', animationFillMode: 'both', opacity: 0 }}
-                    >
-                        природой.
-                    </span>
-                </h1>
-
-                {/* Subtitle */}
-                <p
-                    className="mt-8 font-sans text-sm lg:text-base text-stone-mid max-w-xl leading-relaxed animate-fade-in"
-                    style={{ animationDelay: '0.9s', animationFillMode: 'both', opacity: 0 }}
-                >
-                    Опыт премиального оздоровления на природных радоновых источниках Жаркента.
-                    Медицина, традиции и современный комфорт — в одном месте.
-                </p>
-
-                {/* Stats */}
-                <div
-                    className="mt-12 flex gap-10 lg:gap-16 animate-fade-in"
-                    style={{ animationDelay: '1.1s', animationFillMode: 'both', opacity: 0 }}
-                >
-                    {[
-                        { value: '30+', label: 'Лет опыта' },
-                        { value: '15', label: 'Программ лечения' },
-                        { value: '200+', label: 'Мест размещения' },
-                    ].map((stat) => (
-                        <div key={stat.label} className="flex flex-col">
-                            <span className="font-serif text-3xl lg:text-4xl text-gold-500">{stat.value}</span>
-                            <span className="mt-1 font-sans text-xs tracking-widest uppercase text-stone-dark">{stat.label}</span>
+                    <div className="mt-16 flex flex-wrap gap-10 items-center justify-center animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'both', opacity: 0 }}>
+                        <Link href="/wellness" className="group flex items-center gap-4 rounded-full border border-primary/30 bg-primary/10 px-10 py-5 text-sm font-bold uppercase tracking-widest text-primary backdrop-blur-sm hover:bg-primary hover:text-noir-950 transition-all shadow-xl">
+                            Исследовать услуги
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                        </Link>
+                        <div className="flex flex-col border-l border-primary/20 pl-8 text-left">
+                            <span className="text-4xl font-serif font-bold text-white">30+</span>
+                            <span className="text-[10px] uppercase tracking-widest text-primary/70 font-bold">Лет опыта</span>
                         </div>
-                    ))}
-                </div>
-
-                {/* Scroll indicator */}
-                <div className="mt-16 hidden lg:flex items-center gap-3 text-stone-dark animate-fade-in" style={{ animationDelay: '1.4s', animationFillMode: 'both', opacity: 0 }}>
-                    <div className="w-px h-12 bg-gold-500/40 animate-pulse" />
-                    <span className="font-sans text-xs tracking-[0.3em] uppercase">Листайте вниз</span>
+                    </div>
                 </div>
             </div>
 
-            {/* Booking widget — anchored to bottom */}
-            <div
-                className="relative z-10 w-full animate-fade-in"
-                style={{ animationDelay: '1.2s', animationFillMode: 'both', opacity: 0 }}
-            >
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 pb-0">
-                    <div className="py-3 px-4 bg-noir-800/60 border-t border-gold-500/20 mb-0">
-                        <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold-500 text-center">
-                            Забронировать пребывание
-                        </p>
+            {/* Booking widget section */}
+            <div className="relative z-30 mx-auto w-full max-w-5xl px-6 pb-20 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'both', opacity: 0 }}>
+                <BookingWidget />
+
+                {/* Quick Features */}
+                <div className="mt-12 flex flex-wrap justify-center gap-16 md:gap-24 opacity-80">
+                    <div className="flex items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary/70 group-hover:text-primary transition-colors"><path d="M22 10v6M2 10v6M6 10h12M6 4v16M18 4v16M10 4v4M14 4v4M10 16v4M14 16v4" /></svg>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-stone-dark group-hover:text-primary transition-colors">Медицинская лицензия</span>
+                    </div>
+                    <div className="flex items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary/70 group-hover:text-primary transition-colors"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-stone-dark group-hover:text-primary transition-colors">Диетическое питание</span>
+                    </div>
+                    <div className="flex items-center gap-3 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary/70 group-hover:text-primary transition-colors"><path d="M12 20h.01" /><path d="M2 8.82a15 15 0 0 1 20 0" /><path d="M5 12.859a10 10 0 0 1 14 0" /><path d="M8.5 16.429a5 5 0 0 1 7 0" /></svg>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-stone-dark group-hover:text-primary transition-colors">Бесплатный Wi-Fi</span>
                     </div>
                 </div>
-                <BookingWidget />
             </div>
         </section>
     );
