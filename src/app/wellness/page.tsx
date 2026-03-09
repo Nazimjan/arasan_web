@@ -1,21 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Clock, CheckCircle } from 'lucide-react';
-import { wellnessPrograms } from '@/data/mock';
-import { formatPrice } from '@/lib/utils';
+import WellnessClient from '@/components/sections/WellnessClient';
 
 export const metadata: Metadata = {
-    title: 'Лечебные программы — Жаркент Арасан',
+    title: 'Лечебные процедуры — Жаркент Арасан',
     description:
-        'Широкий выбор оздоровительных и лечебных программ: радоновые ванны, реабилитация, детокс, антистресс и косметология. Записывайтесь онлайн.',
-};
-
-const categoryLabels: Record<string, string> = {
-    mineral: 'Минеральные',
-    medical: 'Медицина',
-    beauty: 'Красота',
-    relaxation: 'Релаксация',
+        'Радоновые ванны, грязелечение, магнитотерапия, галотерапия, фитобочка, ОРМЕД-тракция и другие процедуры санатория «Жаркент Арасан». Записывайтесь онлайн.',
 };
 
 export default function WellnessPage() {
@@ -25,8 +16,8 @@ export default function WellnessPage() {
             <section className="relative h-72 lg:h-96 flex items-end" aria-label="Заголовок раздела">
                 <div className="absolute inset-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80"
-                        alt="Лечебные программы Жаркент Арасан"
+                        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
+                        alt="Лечебные процедуры Жаркент Арасан"
                         fill
                         className="object-cover object-center"
                         priority
@@ -35,118 +26,92 @@ export default function WellnessPage() {
                     <div className="absolute inset-0 bg-hero-overlay" />
                 </div>
                 <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-12 pb-12 lg:pb-16 w-full">
-                    <div className="flex items-center gap-3 mb-4">
+                    <nav aria-label="Хлебные крошки" className="flex items-center gap-2 mb-4">
                         <Link href="/" className="font-sans text-xs text-stone-dark hover:text-stone-warm transition-colors">
                             Главная
                         </Link>
                         <span className="text-stone-dark text-xs">/</span>
-                        <span className="font-sans text-xs text-stone-warm">Лечебные программы</span>
-                    </div>
+                        <span className="font-sans text-xs text-stone-warm">Лечение</span>
+                    </nav>
                     <h1 className="font-serif text-display-md text-stone-warm">
-                        Лечебные <em className="text-gold-500 not-italic">программы</em>
+                        Лечебные <em className="text-gold-500 not-italic">процедуры</em>
                     </h1>
+                    <p className="mt-3 font-sans text-sm text-stone-mid max-w-xl">
+                        12 видов процедур на базе природных радоновых источников Жаркента
+                    </p>
                 </div>
             </section>
 
-            {/* Intro blurb */}
-            <section className="bg-noir-900 py-16">
+            {/* Info strip */}
+            <section className="bg-noir-900 py-10 border-b border-gold-500/10">
                 <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-                    <div className="max-w-3xl">
-                        <p className="font-sans text-sm text-stone-mid leading-relaxed">
-                            Санаторий «Жаркент Арасан» предлагает комплексные оздоровительные программы,
-                            разработанные нашими врачами с учётом природных ресурсов региона — прежде всего
-                            уникальных радоновых источников. Каждая программа включает врачебную консультацию,
-                            индивидуальный план лечения и медицинский контроль.
-                        </p>
+                    <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+                        <div>
+                            <p className="font-sans text-xs text-stone-dark uppercase tracking-widest mb-2">Принцип лечения</p>
+                            <p className="font-sans text-sm text-stone-mid leading-relaxed max-w-xl">
+                                Лечебная база Медицинского Оздоровительного Комплекса «Жаркент-Арасан» основана
+                                на природных радоновых источниках. Каждый пациент проходит осмотр врача,
+                                после которого составляется индивидуальный план процедур.
+                            </p>
+                        </div>
+                        <div className="flex-shrink-0 flex gap-8">
+                            {[
+                                { val: '12+', label: 'видов процедур' },
+                                { val: '30+', label: 'лет опыта' },
+                                { val: '100%', label: 'по назначению врача' },
+                            ].map(stat => (
+                                <div key={stat.label}>
+                                    <p className="font-serif text-3xl text-gold-500">{stat.val}</p>
+                                    <p className="font-sans text-[10px] text-stone-dark uppercase tracking-widest mt-1">{stat.label}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* All programs */}
-            <section className="bg-noir-950 py-16 lg:py-24" aria-labelledby="programs-list-heading">
+            {/* Client-side filter + grid */}
+            <WellnessClient />
+
+            {/* Additional paid services notice */}
+            <section className="bg-noir-900 py-12 border-t border-gold-500/10">
                 <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-                    <h2 id="programs-list-heading" className="sr-only">Список программ</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {wellnessPrograms.map(program => (
-                            <Link
-                                key={program.id}
-                                href={`/wellness/${program.slug}`}
-                                className="group flex flex-col bg-noir-800 border border-gold-500/10 hover:border-gold-500/35 transition-colors card-hover"
-                            >
-                                {/* Image */}
-                                <div className="relative h-52 overflow-hidden">
-                                    <Image
-                                        src={program.imageUrl}
-                                        alt={program.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                                    />
-                                    <div className="absolute top-4 left-4">
-                                        <span className="bg-noir-900/80 border border-gold-500/30 px-3 py-1 font-sans text-[10px] tracking-[0.2em] uppercase text-gold-500">
-                                            {categoryLabels[program.category]}
-                                        </span>
-                                    </div>
-                                    {program.featured && (
-                                        <div className="absolute top-4 right-4">
-                                            <span className="bg-gold-500 text-noir-950 px-2 py-0.5 font-sans text-[9px] tracking-widest uppercase">
-                                                Популярно
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 flex flex-col p-6">
-                                    <h3 className="font-serif text-xl text-stone-warm group-hover:text-gold-300 transition-colors">
-                                        {program.title}
-                                    </h3>
-                                    <p className="mt-2 font-sans text-xs text-gold-500/80 tracking-wide">
-                                        {program.subtitle}
-                                    </p>
-                                    <p className="mt-4 font-sans text-xs text-stone-dark leading-relaxed flex-1">
-                                        {program.description.substring(0, 130)}...
-                                    </p>
-
-                                    {/* Highlights */}
-                                    <ul className="mt-5 space-y-2">
-                                        {program.highlights.slice(0, 3).map(h => (
-                                            <li key={h} className="flex items-center gap-2">
-                                                <CheckCircle size={12} strokeWidth={1.5} className="text-gold-500 flex-shrink-0" />
-                                                <span className="font-sans text-xs text-stone-mid">{h}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    {/* Price / Duration / CTA */}
-                                    <div className="mt-6 pt-5 border-t border-gold-500/10 flex items-center justify-between">
-                                        <div>
-                                            <div className="flex items-center gap-1.5 text-stone-dark mb-1">
-                                                <Clock size={12} strokeWidth={1.5} />
-                                                <span className="font-sans text-xs">{program.duration}</span>
-                                            </div>
-                                            <p className="font-serif text-lg text-gold-500">
-                                                {formatPrice(program.price, program.currency)}
-                                            </p>
-                                        </div>
-                                        <div className="flex items-center gap-2 text-gold-500 group-hover:gap-4 transition-all">
-                                            <span className="font-sans text-[10px] tracking-widest uppercase">Подробнее</span>
-                                            <ArrowRight size={12} strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                    <h2 className="font-serif text-2xl text-stone-warm mb-4">Дополнительные платные услуги</h2>
+                    <p className="font-sans text-sm text-stone-dark mb-6">
+                        Помимо основных программ, доступны следующие процедуры по отдельному назначению:
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
+                        {[
+                            'Различные виды ручного массажа',
+                            'Seragem массаж',
+                            'Тяньши аппарат',
+                            'Трон Кегеля',
+                            'Кислородный коктейль',
+                            'Иглотерапия',
+                            'Фитобочка с пантогематогеном',
+                            'Пантогематогенная ванна',
+                            'Аппарат МАВИТ (простатит)',
+                            'Ректальные грязевые тампоны',
+                            'Урологическая микроклизма',
+                            'Общий анализ крови и мочи',
+                        ].map(service => (
+                            <div key={service} className="flex items-center gap-2 py-1.5">
+                                <div className="w-1 h-1 bg-gold-500 flex-shrink-0" />
+                                <span className="font-sans text-xs text-stone-mid">{service}</span>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Contact CTA */}
-            <section className="bg-noir-900 py-16 border-t border-gold-500/10">
-                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-8 items-center justify-between">
+            {/* CTA */}
+            <section className="bg-noir-800 py-14 border-t border-gold-500/10">
+                <div className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
                     <div>
-                        <h2 className="font-serif text-2xl text-stone-warm">Не знаете, какую программу выбрать?</h2>
-                        <p className="mt-2 font-sans text-sm text-stone-dark">Наши врачи помогут подобрать программу под ваши задачи — бесплатно.</p>
+                        <h2 className="font-serif text-2xl text-stone-warm">Не знаете, какую процедуру выбрать?</h2>
+                        <p className="mt-2 font-sans text-sm text-stone-dark">
+                            Наш врач подберёт оптимальный курс исходя из ваших показаний — бесплатно.
+                        </p>
                     </div>
                     <a
                         href="tel:+77771234567"
