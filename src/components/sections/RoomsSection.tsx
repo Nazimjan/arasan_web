@@ -41,8 +41,7 @@ export default function RoomsSection() {
                     eyebrow="Размещение"
                     title={
                         <>
-                            Пространство <br />
-                            <em className="text-gold-500 not-italic">вашего отдыха</em>
+                            Пространство <em className="text-gold-500 not-italic">вашего отдыха</em>
                         </>
                     }
                     titleId="rooms-heading"

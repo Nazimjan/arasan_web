@@ -76,7 +76,7 @@ export default function PageHero({
                 <div className="absolute inset-0 bg-hero-overlay opacity-80" />
             </div>
 
-            <div className="relative z-10 w-full max-w-[1280px] m-auto px-6 lg:px-12 py-24 flex flex-col items-center text-center">
+            <div className="relative z-10 w-full max-w-[1440px] m-auto px-6 lg:px-12 py-24 flex flex-col items-center text-center">
                 <nav aria-label="Хлебные крошки" className="flex items-center gap-3 mb-8 justify-center animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both', opacity: 0 }}>
                     {breadcrumb.map((item, index) => (
                         <div key={item.label} className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function PageHero({
 
                 {subtitle && (
                     <p
-                        className="font-sans text-base md:text-lg text-slate-300 max-w-2xl text-center leading-relaxed animate-fade-in"
+                        className="font-sans text-base md:text-lg text-slate-300 max-w-4xl text-center leading-relaxed animate-fade-in"
                         style={{ animationDelay: '2.5s', animationFillMode: 'both', opacity: 0 }}
                     >
                         {subtitle}

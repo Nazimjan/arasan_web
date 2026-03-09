@@ -69,14 +69,14 @@ export default function AboutPage() {
             {/* History */}
             <section className="bg-noir-900 py-20 lg:py-28">
                 <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
                         <div>
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="gold-line" />
                                 <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">История</span>
                             </div>
                             <h2 className="font-serif text-display-sm text-stone-warm mb-8">
-                                С 1952 года — <br /><em className="text-gold-500 not-italic">на страже здоровья</em>
+                                С 1952 года — <em className="text-gold-500 not-italic">на страже здоровья</em>
                             </h2>
                             <div className="space-y-5 font-sans text-sm text-stone-mid leading-relaxed">
                                 <p>

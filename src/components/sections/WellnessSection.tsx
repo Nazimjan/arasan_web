@@ -57,8 +57,7 @@ export default function WellnessSection() {
                     eyebrow="Лечебные программы"
                     title={
                         <>
-                            Путь к здоровью <br />
-                            <em className="text-gold-500 not-italic">начинается здесь</em>
+                            Путь к здоровью <em className="text-gold-500 not-italic">начинается здесь</em>
                         </>
                     }
                     titleId="wellness-heading"

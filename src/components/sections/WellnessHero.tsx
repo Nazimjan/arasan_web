@@ -9,10 +9,10 @@ export default function WellnessHero() {
         <section className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center justify-center overflow-hidden" aria-label="Заголовок раздела">
             <div className="absolute inset-0">
                 <Image
-                    src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
+                    src="/wellness-hero.png"
                     alt="Лечебные процедуры Жаркент Арасан"
                     fill
-                    className="object-cover object-center scale-105"
+                    className="object-cover object-center"
                     priority
                     sizes="100vw"
                 />

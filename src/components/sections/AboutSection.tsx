@@ -55,8 +55,7 @@ export default function AboutSection() {
                             className="font-serif text-display-md text-stone-warm animate-on-scroll"
                             style={{ transitionDelay: '0.1s' }}
                         >
-                            Три десятилетия <br />
-                            <em className="text-gold-500 not-italic">природного лечения</em>
+                            Три десятилетия <em className="text-gold-500 not-italic">природного лечения</em>
                         </h2>
 
                         <p

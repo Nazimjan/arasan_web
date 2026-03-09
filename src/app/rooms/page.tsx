@@ -9,7 +9,7 @@ import { formatPrice } from '@/lib/utils';
 export const metadata: Metadata = {
     title: 'Проживание — Жаркент Арасан',
     description:
-        'Одноместный, двухместный, трёхместный стандарт, Полулюкс, Люкс и ВИП-Вилла с личными радоновыми ваннами. Санаторий «Жаркент-Арасан».',
+        'Одноместный, двухместный, трёхместный стандарт, Полулюкс, Люкс и VIP-Вилла с личными радоновыми ваннами. Санаторий «Жаркент-Арасан».',
 };
 
 const infrastructure = [
@@ -49,7 +49,7 @@ export default function RoomsPage() {
         <>
             <PageHero
                 title="Номера & размещение"
-                subtitle="6 категорий номеров — от стандарта до ВИП-виллы с личными радоновыми ваннами."
+                subtitle="6 категорий номеров — от стандарта до VIP-виллы с личными радоновыми ваннами."
                 backgroundImage="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80"
                 shimmerWord="размещение"
                 breadcrumb={[
@@ -60,13 +60,13 @@ export default function RoomsPage() {
 
             {/* Standard amenities banner */}
             <section className="bg-noir-800 py-8 border-y border-gold-500/10">
-                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12">
                     <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold-500 mb-5">В каждом номере</p>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                         {standardAmenities.map(a => (
                             <div key={a} className="flex items-center gap-2">
                                 <CheckCircle size={13} strokeWidth={1.5} className="text-gold-500 flex-shrink-0" />
-                                <span className="font-sans text-xs text-stone-mid">{a}</span>
+                                <span className="font-sans text-xs text-stone-mid whitespace-nowrap">{a}</span>
                             </div>
                         ))}
                     </div>
@@ -86,7 +86,7 @@ export default function RoomsPage() {
 
             {/* Rooms list */}
             <section className="bg-noir-950 py-16 lg:py-24">
-                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 space-y-10">
+                <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12 space-y-10">
                     {rooms.map((room, i) => (
                         <article
                             key={room.id}
@@ -159,7 +159,7 @@ export default function RoomsPage() {
 
             {/* Infrastructure */}
             <section className="bg-noir-900 py-16 border-t border-gold-500/10">
-                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12">
                     <div className="flex items-center gap-4 mb-10">
                         <div className="gold-line" />
                         <h2 className="font-serif text-2xl text-stone-warm">Инфраструктура санатория</h2>
@@ -180,7 +180,7 @@ export default function RoomsPage() {
 
             {/* Leisure & events */}
             <section className="bg-noir-950 py-16 border-t border-gold-500/10">
-                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
                         {/* Leisure */}
@@ -235,7 +235,7 @@ export default function RoomsPage() {
 
             {/* CTA */}
             <section className="bg-noir-900 py-12 border-t border-gold-500/10">
-                <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+                <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6 items-center justify-between">
                     <div>
                         <p className="font-serif text-xl text-stone-warm">Вопросы по бронированию?</p>
                         <p className="mt-1 font-sans text-sm text-stone-dark">Звоните — подберём номер под ваш запрос и бюджет</p>

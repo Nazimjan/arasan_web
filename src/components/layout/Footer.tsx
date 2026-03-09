@@ -18,7 +18,7 @@ export default function Footer() {
                             </span>
                         </div>
                         <p className="font-sans text-sm text-stone-dark leading-relaxed">
-                            Премиальный санаторий на природных радоновых источниках Жаркента. Лечение с 1952 года.
+                            Санаторий на природных радоновых источниках Жаркента. Лечение с 1952 года.
                         </p>
                         <div className="mt-6 flex gap-4">
                             <a

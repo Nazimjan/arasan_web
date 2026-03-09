@@ -53,15 +53,17 @@ export default async function WellnessProgramPage({ params }: Props) {
             {/* Content */}
             <section className="bg-noir-950 py-16 lg:py-24">
                 <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+                    <div className="mb-12">
+                        <Link href="/wellness" className="inline-flex items-center gap-2 text-stone-dark hover:text-gold-500 transition-colors font-sans text-xs tracking-widest uppercase">
+                            <ArrowLeft size={14} strokeWidth={1.5} />
+                            Все процедуры
+                        </Link>
+                    </div>
+
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
                         {/* Main content */}
                         <div className="lg:col-span-2 space-y-12">
-
-                            <Link href="/wellness" className="inline-flex items-center gap-2 text-stone-dark hover:text-gold-500 transition-colors font-sans text-xs tracking-widest uppercase">
-                                <ArrowLeft size={14} strokeWidth={1.5} />
-                                Все процедуры
-                            </Link>
 
                             {/* About */}
                             <div>
@@ -99,19 +101,20 @@ export default async function WellnessProgramPage({ params }: Props) {
 
                             {/* Contraindications */}
                             <div className="p-8 bg-noir-800 border border-gold-500/10">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-12 h-px bg-stone-dark/50" />
-                                    <h2 className="font-serif text-xl text-stone-warm">Противопоказания</h2>
+                                <div className="flex items-center justify-center gap-4 mb-8">
+                                    <div className="w-16 h-px bg-stone-dark/50" />
+                                    <h2 className="font-serif text-xl text-stone-warm text-center">Противопоказания</h2>
+                                    <div className="w-16 h-px bg-stone-dark/50" />
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                                <div className="flex flex-col items-center gap-y-3">
                                     {program.contraindications.map(item => (
-                                        <div key={item} className="flex items-start gap-3">
+                                        <div key={item} className="flex items-start gap-3 justify-center">
                                             <XCircle size={14} strokeWidth={1.5} className="text-stone-dark flex-shrink-0 mt-0.5" />
-                                            <span className="font-sans text-xs text-stone-dark">{item}</span>
+                                            <span className="font-sans text-xs text-stone-dark text-center">{item}</span>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="mt-6 font-sans text-[11px] text-stone-dark/70 leading-relaxed">
+                                <p className="mt-6 font-sans text-[11px] text-stone-dark/70 leading-relaxed text-center">
                                     Перед началом курса необходима консультация врача. Точный перечень противопоказаний
                                     определяется индивидуально на первичном осмотре.
                                 </p>

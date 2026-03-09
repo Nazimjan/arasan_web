@@ -49,7 +49,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Беременность и лактация',
             'Тяжелые нарушения сердечного ритма',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80',
+        imageUrl: '/radon-baths-hero.png',
         featured: true,
     },
     {
@@ -58,7 +58,7 @@ export const wellnessPrograms: WellnessProgram[] = [
         title: 'Грязелечение',
         subtitle: 'Аппликации иловыми грязями',
         description:
-            'Используемые лечебные грязи богаты гуминовыми кислотами, битумами, белками и минеральными солями. Процедура проводится при температуре 42-47°С. Тепловой эффект в сочетании с химическим воздействием компонентов грязи восстанавливает поврежденные ткани, вызывает прилив крови к органам малого таза и суставам, способствуя рассасыванию спаек и хронических очагов воспаления. Особенно эффективно при лечении бесплодия и застарелых травм опорно-двигательного аппарата.',
+            'используемые лечебные грязи богаты гуминовыми кислотами, битумами, белками и минеральными солями. Процедура проводится при температуре 42-47°С. Тепловой эффект в сочетании с химическим воздействием компонентов грязи восстанавливает поврежденные ткани, вызывает прилив крови к органам малого таза и суставам, способствуя рассасыванию спаек и хронических очагов воспаления. Особенно эффективно при лечении бесплодия и застарелых травм опорно-двигательного аппарата.',
         duration: '15–20 минут',
         price: 75000,
         currency: 'KZT',
@@ -82,7 +82,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Миомы и опухоли',
             'Туберкулез',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?w=800&q=80',
+        imageUrl: '/mud-therapy-hero.png',
         featured: true,
     },
     {
@@ -117,7 +117,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Миома матки > 16 недель',
             'Геморрой в стадии обострения',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
+        imageUrl: '/kegel-throne-hero.png',
         featured: true,
     },
     {
@@ -150,7 +150,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Системные болезни крови',
             'Гипотония 3 стадии',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+        imageUrl: '/magnetotherapy-hero.png',
         featured: false,
     },
     {
@@ -183,7 +183,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Гипертония 3 степени',
             'Клаустрофобия',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80',
+        imageUrl: '/dry-co2-baths-hero.png',
         featured: false,
     },
     {
@@ -216,7 +216,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Онкология',
             'Кластрофобия',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&q=80',
+        imageUrl: '/galotherapy-people-hero.png',
         featured: true,
     },
     {
@@ -248,7 +248,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Гипертония 3 стадии',
             'Заболевания кожи',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80',
+        imageUrl: '/sharko-shower-hero.png',
         featured: true,
     },
     {
@@ -280,7 +280,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Острые боли (стадия обострения)',
             'Травмы позвоночника в анамнезе',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
+        imageUrl: '/ormed-traction-hero.png',
         featured: false,
     },
     {
@@ -313,7 +313,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Прием антикоагулянтов',
             'Фотодерматозы (чувствительность к свету)',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80',
+        imageUrl: '/vlok-laser-hero.png',
         featured: false,
     },
     {
@@ -346,7 +346,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Склонность к кровотечениям',
             'Эпилепсия',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80',
+        imageUrl: '/phyto-barrel-hero.jpg',
         featured: false,
     },
     {
@@ -378,7 +378,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Злокачественные опухоли',
             'Алкогольное опьянение',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1534353341818-ad1e8f39bec5?w=800&q=80',
+        imageUrl: '/pantogematogen-bath-hero.jpg',
         featured: true,
     },
     {
@@ -410,7 +410,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Злокачественные новообразования таза',
             'Камни в простате',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80',
+        imageUrl: '/mavit-prostate-hero.jpg',
         featured: false,
     },
     {
@@ -475,7 +475,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Острые инфекции',
             'Кровотечения',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+        imageUrl: '/tianshi-apparatus-hero.jpg',
         featured: false,
     },
     {
@@ -507,7 +507,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Переломы и операции на позвоночнике',
             'Остеопороз',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=800&q=80',
+        imageUrl: '/seragem-massage-hero.jpg',
         featured: false,
     },
     {
@@ -539,7 +539,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Розацеа (сосудистая сетка)',
             'Общая лихорадка',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
+        imageUrl: '/paraffin-therapy-hero.png',
         featured: false,
     },
     {
@@ -570,7 +570,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Индивидуальная непереносимость тока',
             'Гнойные воспаления',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+        imageUrl: '/electrophoresis-hero.png',
         featured: false,
     },
     {
@@ -600,7 +600,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Серьезные аллергии на белок/соки',
             'Обострение язвенной болезни',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1534353341818-ad1e8f39bec5?w=800&q=80',
+        imageUrl: '/oxygen-cocktail-hero.png',
         featured: false,
     },
     {
@@ -631,7 +631,7 @@ export const wellnessPrograms: WellnessProgram[] = [
             'Эпилепсия',
             'Инфекционные болезни кожи',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80',
+        imageUrl: '/circular-shower-hero.png',
         featured: false,
     },
     {
@@ -659,7 +659,7 @@ export const wellnessPrograms: WellnessProgram[] = [
         contraindications: [
             'Нет специфических противопоказаний',
         ],
-        imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80',
+        imageUrl: '/analys-blood-urine-hero.png',
         featured: false,
     },
 ];
@@ -751,7 +751,7 @@ export const rooms: Room[] = [
     },
     {
         id: 'r6', slug: 'vip-villa',
-        title: 'ВИП-Вилла', subtitle: 'Отдельная вилла с личными радоновыми ваннами',
+        title: 'VIP-Вилла', subtitle: 'Отдельная вилла с личными радоновыми ваннами',
         maxGuests: 4, pricePerNight: 150000, currency: 'KZT',
         description: 'Уникальный формат: отдельно стоящая вилла с двумя ваннами для принятия радона прямо в номере, массажной комнатой, кухней и несколькими зонами отдыха. Исключительная приватность и полный комплекс удобств.',
         amenities: ['2 ванные с радоновой водой', 'Массажная комната', 'Собственная кухня', 'Обеденный зал', 'Открытая библиотека', 'Шахматный стол', 'Холл с TV и мягкой мебелью', 'Кофе-машина', 'Wi-Fi', 'Терраса', 'Душевая кабина, фен, туалетные принадлежности', 'Халаты, полотенца, бельё', 'Холодильник', 'Кондиционер', 'Балкон', 'Отдельный сейф', 'Электрический чайник', 'Посуда', 'Весы'],

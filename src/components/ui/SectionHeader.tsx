@@ -33,10 +33,10 @@ export default function SectionHeader({
     const alignmentClass = alignment === 'center' ? 'items-center text-center' : '';
 
     return (
-        <div className={`mb-16 lg:mb-20 ${className}`.trim()}>
+        <div className={`mb-10 lg:mb-12 ${className}`.trim()}>
             {/* Eyebrow with gold line */}
             {eyebrow && (
-                <div className={`flex items-center gap-4 mb-6 ${alignment === 'center' ? 'justify-center' : ''}`}>
+                <div className={`flex items-center gap-4 mb-10 ${alignment === 'center' ? 'justify-center' : ''}`}>
                     <div className="gold-line" />
                     <span className="font-sans text-xs tracking-[0.4em] uppercase text-gold-500">
                         {eyebrow}

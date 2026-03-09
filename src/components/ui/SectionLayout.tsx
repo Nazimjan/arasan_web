@@ -32,7 +32,7 @@ export default function SectionLayout({
             aria-labelledby={ariaLabelledBy}
             className={`${paddingClass} ${className}`.trim()}
         >
-            <div className="w-full max-w-[1280px] m-auto px-6 lg:px-12">
+            <div className="w-full max-w-[1440px] m-auto px-6 lg:px-12">
                 {children}
             </div>
         </section>

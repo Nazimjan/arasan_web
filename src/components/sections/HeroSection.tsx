@@ -22,8 +22,8 @@ export default function HeroSection() {
             {/* Background image (fallback for no video) */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1920&q=80"
-                    alt="Природа Жаркента — термальные источники"
+                    src="/main-hero-new.png"
+                    alt="Панорамный вид санатория Жаркент Арасан"
                     fill
                     priority
                     className="object-cover object-center"
@@ -45,18 +45,7 @@ export default function HeroSection() {
                 <div className="max-w-6xl flex flex-col items-center">
 
 
-                    {/* Main headline */}
-                    <h1
-                        className="gold-shimmer font-serif text-5xl md:text-8xl lg:text-9xl font-light leading-tight tracking-tight mb-8 md:whitespace-nowrap"
-                        style={{ minHeight: '1.2em' }}
-                    >
-                        <Typewriter
-                            text="Исцеление природой."
-                            speed={150}
-                            delay={800}
-                            className="inline"
-                        />
-                    </h1>
+
 
                     {/* Subtitle */}
                     <p
