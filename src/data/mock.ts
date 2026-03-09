@@ -673,68 +673,90 @@ export const categoryMeta: Record<string, { label: string; labelRu: string }> = 
     beauty: { label: 'Beauty', labelRu: 'Красота' },
 };
 
-// Mock data for rooms
+// Room data
 export interface Room {
     id: string;
+    slug: string;
     title: string;
-    category: 'standard' | 'comfort' | 'deluxe' | 'suite';
-    area: number;
+    subtitle: string;
     maxGuests: number;
     pricePerNight: number;
     currency: string;
     description: string;
     amenities: string[];
     imageUrl: string;
+    featured?: boolean;
 }
+
+// Amenities in every standard room
+export const standardAmenities = [
+    'Душевая кабина, фен, санузел',
+    'Холодильник',
+    'Телевизор',
+    'Стулья или мягкая мебель',
+    'Холодная и горячая вода',
+    'Халаты, полотенца, бельё',
+];
+
+// Building-wide shared amenities
+export const buildingAmenities = [
+    'Бесплатный Wi-Fi (модем в корпусе)',
+    'Гладильная доска и утюг',
+    'Кулер с водой',
+];
 
 export const rooms: Room[] = [
     {
-        id: 'r1',
-        title: 'Стандарт',
-        category: 'standard',
-        area: 22,
-        maxGuests: 2,
-        pricePerNight: 18000,
-        currency: 'KZT',
-        description: 'Уютный номер с видом на горный пейзаж. Оснащён всем необходимым для комфортного пребывания.',
-        amenities: ['Wi-Fi', 'Телевизор', 'Холодильник', 'Ванная комната', 'Кондиционер'],
+        id: 'r1', slug: 'standard-single',
+        title: 'Одноместный стандарт', subtitle: 'Уют и спокойствие для одного гостя',
+        maxGuests: 1, pricePerNight: 15000, currency: 'KZT',
+        description: 'Компактный и уютный номер для уединённого отдыха и лечения. Оснащён всем необходимым для полноценного восстановления.',
+        amenities: ['Душевая кабина, фен, санузел', 'Холодильник', 'Телевизор', 'Мягкое кресло', 'Халат, полотенца, бельё', 'Горячая и холодная вода'],
         imageUrl: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     },
     {
-        id: 'r2',
-        title: 'Комфорт',
-        category: 'comfort',
-        area: 30,
-        maxGuests: 2,
-        pricePerNight: 26000,
-        currency: 'KZT',
-        description: 'Просторный номер повышенного комфорта с дополнительной гостиной зоной и расширенным набором услуг.',
-        amenities: ['Wi-Fi', 'Smart TV', 'Мини-бар', 'Ванная + душ', 'Кондиционер', 'Сейф', 'Халаты'],
+        id: 'r2', slug: 'standard-double',
+        title: 'Двухместный стандарт', subtitle: 'Для пар и совместного лечения',
+        maxGuests: 2, pricePerNight: 22000, currency: 'KZT',
+        description: 'Самый популярный вариант для пар или двух друзей. Просторная планировка с двумя кроватями или двуспальной.',
+        amenities: ['Душевая кабина, фен, санузел', 'Холодильник', 'Телевизор', 'Мягкая мебель', 'Халаты, полотенца, бельё', 'Горячая и холодная вода'],
         imageUrl: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80',
+        featured: true,
     },
     {
-        id: 'r3',
-        title: 'Делюкс',
-        category: 'deluxe',
-        area: 42,
-        maxGuests: 3,
-        pricePerNight: 38000,
-        currency: 'KZT',
-        description: 'Элегантный номер категории делюкс с панорамным видом и эксклюзивными интерьерными решениями.',
-        amenities: ['Wi-Fi', '65" Smart TV', 'Мини-бар', 'Ванная с джакузи', 'Кондиционер', 'Сейф', 'Халаты и тапочки', 'Балкон'],
+        id: 'r3', slug: 'standard-triple',
+        title: 'Трёхместный стандарт', subtitle: 'Для семей и групповых поездок',
+        maxGuests: 3, pricePerNight: 30000, currency: 'KZT',
+        description: 'Три полноценных спальных места — идеально для семьи с ребёнком или трёх друзей. Один из самых вместительных стандартных номеров.',
+        amenities: ['Душевая кабина, фен, санузел', 'Холодильник', 'Телевизор', 'Мягкая мебель', 'Халаты, полотенца, бельё', 'Горячая и холодная вода'],
+        imageUrl: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80',
+    },
+    {
+        id: 'r4', slug: 'semi-suite',
+        title: 'Полулюкс', subtitle: 'Повышенный комфорт и простор',
+        maxGuests: 2, pricePerNight: 38000, currency: 'KZT',
+        description: 'Улучшенная отделка, расширенная площадь, балкон с видом на горы. Оптимальный выбор для тех, кто ценит пространство и уют.',
+        amenities: ['Душевая кабина, фен, санузел', 'Холодильник', 'Телевизор', 'Мягкий диван', 'Халаты, полотенца, бельё', 'Кондиционер', 'Балкон'],
         imageUrl: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
+        featured: true,
     },
     {
-        id: 'r4',
-        title: 'Сюит',
-        category: 'suite',
-        area: 65,
-        maxGuests: 4,
-        pricePerNight: 65000,
-        currency: 'KZT',
-        description: 'Апартаменты высшей категории с отдельными спальней и гостиной, частной террасой и персональным консьержем.',
-        amenities: ['Wi-Fi', '75" Smart TV', 'Полный мини-бар', 'Spa-ванна', 'Кондиционер', 'Сейф', 'Комплект люкс', 'Терраса', 'Персональный консьерж'],
+        id: 'r5', slug: 'suite',
+        title: 'Люкс', subtitle: 'Максимальный комфорт в санатории',
+        maxGuests: 2, pricePerNight: 55000, currency: 'KZT',
+        description: 'Апартаменты высшей категории: отдельные спальня и гостиная, эксклюзивная отделка, все удобства высшего уровня.',
+        amenities: ['Душевая кабина, фен, туалетные принадлежности', 'Холодильник', 'Телевизор', 'Мягкая мебель', 'Халаты, полотенца, бельё', 'Кондиционер', 'Балкон', 'Отдельный сейф', 'Весы', 'Электрический чайник'],
         imageUrl: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
+        featured: true,
+    },
+    {
+        id: 'r6', slug: 'vip-villa',
+        title: 'ВИП-Вилла', subtitle: 'Отдельная вилла с личными радоновыми ваннами',
+        maxGuests: 4, pricePerNight: 150000, currency: 'KZT',
+        description: 'Уникальный формат: отдельно стоящая вилла с двумя ваннами для принятия радона прямо в номере, массажной комнатой, кухней и несколькими зонами отдыха. Исключительная приватность и полный комплекс удобств.',
+        amenities: ['2 ванные с радоновой водой', 'Массажная комната', 'Собственная кухня', 'Обеденный зал', 'Открытая библиотека', 'Шахматный стол', 'Холл с TV и мягкой мебелью', 'Кофе-машина', 'Wi-Fi', 'Терраса', 'Душевая кабина, фен, туалетные принадлежности', 'Халаты, полотенца, бельё', 'Холодильник', 'Кондиционер', 'Балкон', 'Отдельный сейф', 'Электрический чайник', 'Посуда', 'Весы'],
+        imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
+        featured: true,
     },
 ];
 
