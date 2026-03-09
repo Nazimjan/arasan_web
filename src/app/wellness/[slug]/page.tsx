@@ -7,7 +7,7 @@ import { wellnessPrograms, categoryMeta } from '@/data/mock';
 import { formatPrice } from '@/lib/utils';
 
 interface Props {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const program = wellnessPrograms.find(p => p.slug === params.slug);
+    const { slug } = await params;
+    const program = wellnessPrograms.find(p => p.slug === slug);
     if (!program) return {};
     return {
         title: `${program.title} — Жаркент Арасан`,
@@ -23,9 +24,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function WellnessProgramPage({ params }: Props) {
-    const program = wellnessPrograms.find(p => p.slug === params.slug);
-    if (!program) notFound();
+export default async function WellnessProgramPage({ params }: Props) {
+    const { slug } = await params;
+    const program = wellnessPrograms.find(p => p.slug === slug);
+
+    if (!program) {
+        notFound();
+    }
 
     const related = wellnessPrograms
         .filter(p => p.id !== program.id && p.category === program.category)
@@ -82,6 +87,18 @@ export default function WellnessProgramPage({ params }: Props) {
                                 <h2 className="font-serif text-2xl text-stone-warm mb-5">О процедуре</h2>
                                 <p className="font-sans text-sm text-stone-mid leading-relaxed">{program.description}</p>
                             </div>
+
+                            {/* Highlights */}
+                            {program.highlights && program.highlights.length > 0 && (
+                                <div className="grid grid-cols-2 gap-4">
+                                    {program.highlights.map(h => (
+                                        <div key={h} className="flex items-center gap-3 p-4 border border-gold-500/15 bg-noir-800/40">
+                                            <div className="w-1.5 h-1.5 bg-gold-500 flex-shrink-0" />
+                                            <span className="font-sans text-xs text-stone-mid">{h}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
                             {/* Indications */}
                             <div>
@@ -175,7 +192,7 @@ export default function WellnessProgramPage({ params }: Props) {
                                             Забронировать курс
                                         </Link>
                                         <a
-                                            href="tel:+77771234567"
+                                            href="tel:+77772633343"
                                             className="flex items-center justify-center gap-2 w-full py-4 border border-gold-500/40 text-gold-500 font-sans text-xs tracking-[0.15em] uppercase hover:border-gold-500 transition-all"
                                         >
                                             <Phone size={14} strokeWidth={1.5} />
@@ -184,7 +201,7 @@ export default function WellnessProgramPage({ params }: Props) {
                                     </div>
 
                                     <p className="mt-5 font-sans text-[10px] text-stone-dark text-center leading-relaxed">
-                                        Стоимость указана ориентировочно. Точная цена определяется после консультации и зависит от типа номера и срока лечения.
+                                        Стоимость указана ориентировочно. Точная цена определяется после консультации.
                                     </p>
                                 </div>
 
