@@ -63,18 +63,18 @@ export default function AboutSection() {
                             className="mt-8 font-sans text-sm text-stone-mid leading-relaxed animate-on-scroll"
                             style={{ transitionDelay: '0.2s' }}
                         >
-                            Санаторий «Жаркент Арасан» расположен в уникальном природном регионе
-                            Алматинской области, вблизи природных радоновых источников. С 1994 года
-                            мы помогаем тысячам гостей восстановить здоровье и обрести душевный покой.
+                            МОК «Жаркент-Арасан» основан на природных радоновых источниках, известных с 1952 года.
+                            В 1967 году здесь открыли всесоюзную лечебницу. Сегодня — это современный санаторий
+                            с полным медицинским персоналом и лицензированной базой процедур.
                         </p>
 
                         <p
                             className="mt-4 font-sans text-sm text-stone-mid leading-relaxed animate-on-scroll"
                             style={{ transitionDelay: '0.3s' }}
                         >
-                            Наш медицинский персонал — это команда сертифицированных специалистов,
-                            применяющих как традиционные методы бальнеотерапии, так и современные
-                            физиотерапевтические технологии.
+                            Методы радонолечения перенесены из практики НИИ курортологии Пятигорска и дополнены
+                            исследованиями Массачусетского университета. В 2024 году санаторий получил высшую
+                            награду страны — премию Президента РК <strong className="text-gold-500">«Алтын Сапа»</strong>.
                         </p>
 
                         {/* Values grid */}
@@ -98,11 +98,11 @@ export default function AboutSection() {
                         </div>
 
                         <Link
-                            href="/wellness"
+                            href="/about"
                             className="mt-12 inline-flex items-center gap-3 px-8 py-4 border border-gold-500 text-gold-500 font-sans text-xs tracking-[0.2em] uppercase hover:bg-gold-500 hover:text-noir-950 transition-all duration-300 group animate-on-scroll"
                             style={{ transitionDelay: '0.5s' }}
                         >
-                            <span>Наши программы</span>
+                            <span>О санатории</span>
                             <ArrowRight size={14} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>

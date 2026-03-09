@@ -8,8 +8,8 @@ const navLinks = [
     { href: '/', label: 'Главная' },
     { href: '/wellness', label: 'Лечение' },
     { href: '/rooms', label: 'Проживание' },
-    { href: '#about', label: 'О санатории' },
-    { href: '#contacts', label: 'Контакты' },
+    { href: '/about', label: 'О санатории' },
+    { href: '/contacts', label: 'Контакты' },
 ];
 
 export default function Header() {
@@ -63,11 +63,11 @@ export default function Header() {
                         {/* CTA + Burger */}
                         <div className="flex items-center gap-6">
                             <a
-                                href="tel:+77771234567"
+                                href="tel:+77772633343"
                                 className="hidden lg:flex items-center gap-2 text-sm font-sans text-stone-warm/80 hover:text-gold-500 transition-colors"
                             >
                                 <Phone size={14} strokeWidth={1.5} />
-                                <span className="tracking-wider">+7 (777) 123-45-67</span>
+                                <span className="tracking-wider">+7 (777) 263-33-43</span>
                             </a>
 
                             <Link
@@ -111,8 +111,8 @@ export default function Header() {
                 </nav>
 
                 <div className="mt-16 flex flex-col items-center gap-4">
-                    <a href="tel:+77771234567" className="text-gold-500 font-sans text-lg tracking-wider">
-                        +7 (777) 123-45-67
+                    <a href="tel:+77772633343" className="text-gold-500 font-sans text-lg tracking-wider">
+                        +7 (777) 263-33-43
                     </a>
                     <Link
                         href="/booking"
